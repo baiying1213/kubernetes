@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: https-vhosts
+spec:
+  tls:
+  - host:
+    - www.beisencorp.com
+    scretName: beisencorp-https
+  rules:
+  - host: www.beisencorp.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-vhosts
+          servicePort: 80
